@@ -29,18 +29,4 @@ const Order = () => {
   );
 };
 
-const styles = {
-  container: {
-    padding: "2rem",
-  },
-  list: {
-    listStyleType: "none",
-    padding: 0,
-  },
-  item: {
-    marginBottom: "1rem",
-    fontSize: "1.2rem",
-  },
-};
-
 export default Order;

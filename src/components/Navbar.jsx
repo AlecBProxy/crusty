@@ -19,23 +19,4 @@ const Navbar = () => {
   );
 };
 
-const styles = {
-  nav: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "1rem 2rem",
-    backgroundColor: "#ffcc00",
-    color: "#333",
-  },
-  title: {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-  },
-  links: {
-    listStyleType: "none",
-    display: "flex",
-    gap: "1rem",
-  },
-};
-
 export default Navbar;

@@ -8,14 +8,4 @@ const Footer = () => {
   );
 };
 
-const styles = {
-  footer: {
-    marginTop: "2rem",
-    padding: "1rem",
-    backgroundColor: "#333",
-    color: "#fff",
-    textAlign: "center",
-  },
-};
-
 export default Footer;

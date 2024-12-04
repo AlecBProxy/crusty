@@ -9,11 +9,4 @@ const Home = () => {
   );
 };
 
-const styles = {
-  container: {
-    textAlign: "center",
-    margin: "2rem",
-  },
-};
-
 export default Home;
