@@ -16,11 +16,11 @@ const Order = () => {
   }, []);
 
   return (
-    <div style={styles.container}>
+    <div>
       <h1>Our Pizzas</h1>
-      <ul style={styles.list}>
+      <ul>
         {pizzas.map((pizza) => (
-          <li key={pizza.id} style={styles.item}>
+          <li key={pizza.id}>
             {pizza.name} - ${pizza.price.toFixed(2)}
           </li>
         ))}

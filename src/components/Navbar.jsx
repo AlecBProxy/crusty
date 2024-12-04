@@ -2,9 +2,9 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav style={styles.nav}>
-      <h1 style={styles.title}>Crusty</h1>
-      <ul style={styles.links}>
+    <nav>
+      <h1>Crusty</h1>
+      <ul>
         <li>
           <a href="/">Home</a>
         </li>
