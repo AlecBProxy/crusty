@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/home.css";
 import logo from "../media/logo.png";
 import pizza from "../media/pizza.png";
+import farmhillbanner from "../media/farmhillbanner.png";
 
 const Home = () => {
   return (
@@ -35,6 +36,9 @@ const Home = () => {
             Reasonably Fast Delivery * Reasonably Fast Delivery * Reasonably
             Fast Delivery *
           </div>
+        </div>
+        <div className="bottom-banner">
+          <img src={farmhillbanner} alt="Farm Hill Banner" />
         </div>
 
         <img src={pizza} alt="Pizza" className="pizza-image" />
