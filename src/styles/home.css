@@ -1,0 +1,104 @@
+.home-container {
+  background-color: #ee4130;
+  color: white;
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 1500px;
+  overflow: hidden;
+}
+
+.brand-name {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  gap: 35px;
+  margin-left: 100px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #feb63e;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.left-column {
+  padding: 20px;
+}
+
+.left-column h2 {
+  font-size: 100px;
+}
+
+.headline {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-top: 20px;
+  max-width: 50%;
+}
+
+.banner {
+  background-color: #feb63e;
+  color: black;
+  font-weight: bold;
+  padding: 15px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  top: 600px;
+  width: 100%;
+  transform: rotate(-2deg);
+}
+
+.banner-text {
+  font-size: 30px;
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 170px;
+  animation: scroll-text 10s linear infinite;
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.pizza-image {
+  position: absolute;
+  bottom: 15%;
+  right: -25%;
+  width: 1200px;
+  animation: spin 200s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

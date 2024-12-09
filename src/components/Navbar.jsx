@@ -1,21 +1,20 @@
 import React from "react";
+import "../styles/navbar.css";
+import logo from "../media/logo.png";
 
 const Navbar = () => {
   return (
-    <nav>
-      <h1>Crusty</h1>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/order">Order</a>
-        </li>
-        <li>
-          <a href="/customize">Customize</a>
-        </li>
-      </ul>
-    </nav>
+    <header className="header">
+      <div className="logo-section">
+        <img src={logo} alt="Crusti Logo" className="logo" />
+        <h1 className="brand-name">Crusti</h1>
+      </div>
+      <nav className="nav">
+        <a href="/customize">Customize</a>
+        <a href="/order">Order</a>
+        <a href="/our-story">Our Story</a>
+      </nav>
+    </header>
   );
 };
 
