@@ -1,0 +1,113 @@
+.orders-container {
+  display: flex;
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #fff;
+}
+
+.orders-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #646464;
+  cursor: pointer;
+}
+
+.orders-btn:hover {
+  color: #333;
+
+}
+
+.pizza-emojis {
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 20px;
+}
+
+.pizza-emojis > * {
+  margin-right: -10px;
+}
+
+.pizza-many {
+  margin-right: 0;
+}
+
+/* Modal overlay to handle click outside */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  z-index: 9999;
+}
+
+/* Base styles for the modal */
+.orders-modal {
+  background-color: #fff8c0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 48px 20px 0 0;
+  padding: 0 0 16px 0;
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: all 2s ease;
+  text-align: center;
+}
+
+/* When the modal is "open", fade and slide it in */
+.orders-modal.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.order-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.order-item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  text-wrap: nowrap;
+}
+
+.order-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.order-btn{
+  padding: 8px 36px;
+  width: 100px;
+  background-color: #FEB63E;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}

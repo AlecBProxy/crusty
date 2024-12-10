@@ -1,0 +1,154 @@
+.pizza-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 600px;
+  background-color: #FEB63E;
+}
+
+
+.carousel-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 530px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.pizza-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 250px;
+  margin: 15px;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor:grab;
+}
+
+.pizza-card-active{
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.pizza-card-prev1{
+  transform: scale(1) rotate(-5deg) translateY(20px);
+}
+
+.pizza-card-prev2{
+  transform: scale(0.9) rotate(-10deg) translateY(70px);
+}
+
+.pizza-card-prev3{
+  transform: scale(0.8) rotate(-15deg) translateY(160px);
+}
+
+.pizza-card-active + *{
+  transform: scale(1) rotate(5deg) translateY(20px);
+}
+.pizza-card-active + * + *{
+  transform: scale(0.9) rotate(10deg) translateY(70px);
+}
+
+.pizza-card-active + * + * + *{
+  transform: scale(0.8) rotate(15deg) translateY(160px);
+}
+
+
+.pizza-card-img{
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  /* border-radius: 50%; */
+  pointer-events: none;
+}
+
+.pizza-card-list{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.pizza-card-list li{
+  width:max-content;
+  font-size: 14px;
+  padding: 4px 8px;
+  color:#505050;
+  list-style-type: none;
+}
+
+.pizza-sizes{
+  display: none;
+  align-items:end;
+  gap: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.pizza-content-active{
+  display: flex;
+}
+
+.pizza-size-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pizza-size{
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.pizza-size-12{
+  width: 40px;
+  height: 40px;
+  
+}
+
+.pizza-size-16{
+  width: 45px;
+  height: 45px;
+}
+
+.pizza-size-18{
+  width: 50px;
+  height: 50px;
+}
+
+.pizza-size-12::after, .pizza-size-16::after, .pizza-size-18::after{
+  content: '+';
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 12px;
+  background-color: #EE4130;
+  color: #fff;
+  border-radius: 50px;
+  width: 16px;
+  height: 16px;
+}
+
+.dot{
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 1px;
+  border-radius: 50%;
+  background-color: #333;
+  border: none;
+}
+
+.dot-active{
+  background-color: #EE4130;
+}
