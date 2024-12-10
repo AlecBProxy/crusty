@@ -3,6 +3,9 @@ import "../styles/home.css";
 import logo from "../media/logo.png";
 import pizza from "../media/pizza.png";
 import farmhillbanner from "../media/farmhillbanner.png";
+import face1 from "../media/face1.png";
+import face2 from "../media/face2.png";
+import face3 from "../media/face3.png";
 
 const Home = () => {
   return (
@@ -42,6 +45,22 @@ const Home = () => {
         </div>
 
         <img src={pizza} alt="Pizza" className="pizza-image" />
+        <div className="testimonial-group">
+          <div className="testimonial">
+            <img src={face1} alt="Face 1" />
+            <p>"The crust? Perfectly crispy. Just like Ma used to make."</p>
+          </div>
+          <div className="testimonial">
+            <img src={face2} alt="Face 3" />
+            <p>
+              "Every other pizza joint will let you down after coming here."
+            </p>
+          </div>
+          <div className="testimonial">
+            <img src={face3} alt="Face 3" />
+            <p>"Fresh. Bold. No Shortcuts."</p>
+          </div>
+        </div>
       </main>
     </div>
   );

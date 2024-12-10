@@ -88,7 +88,7 @@
 
 .pizza-image {
   position: absolute;
-  bottom: 40%;
+  bottom: 55%;
   right: -25%;
   width: 1200px;
   animation: spin 200s linear infinite;
@@ -103,17 +103,40 @@
   }
 }
 
-/* For the container */
 .bottom-banner {
   position: relative;
   width: 100%;
   height: auto;
   margin-top: 200px;
-  overflow: hidden; /* Ensure no overflow happens */
+  overflow: hidden;
 }
 
 .bottom-banner img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  font-size: 20px;
+  max-width: 300px;
+}
+
+.testimonial img {
+  width: 200px;
+  height: 200px;
+  border-radius: 500px;
+}
+
+.testimonial-group {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  gap: 100px;
+  padding: 30px;
 }
