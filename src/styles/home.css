@@ -127,8 +127,8 @@
 }
 
 .testimonial img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: auto;
   border-radius: 500px;
 }
 
