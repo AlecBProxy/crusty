@@ -1,0 +1,38 @@
+body{
+    background-color: #ee4130;
+}
+
+.customize-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 20px; 
+    align-items: flex-start; 
+    padding: 20px;
+  }
+  
+  .customizer-section {
+    text-align: left;
+  }
+  
+  .picture-section {
+    text-align: center; 
+  }
+  
+  .customize-picture {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+  }
+  
+  .size-selection, .toppings-selection, .extra-options-selection {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1rem;
+  }
+  
+  .align-right {
+    margin-left: auto; 
+    width: 70%; 
+  }
+  
