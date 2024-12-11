@@ -60,6 +60,7 @@
   transition: background-position 0.3s ease;
   background-size: 200% 100%;
   background-position: left;
+  pointer-events: auto;
 }
 
 .order-button:hover {
@@ -114,6 +115,7 @@
   right: -25%;
   width: 1200px;
   animation: spin 200s linear infinite;
+  pointer-events: none;
 }
 
 @keyframes spin {
