@@ -1,3 +1,6 @@
+p{
+  margin: 0;
+}
 .orders-container {
   display: flex;
   position: relative;
@@ -7,14 +10,15 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  background-color: #fff;
+  /* width: 120px; */
+  margin-left: 16px;
+  color: white;
 }
 
 .orders-btn {
   display: flex;
-  align-items: center;
+  align-items:baseline;
   gap: 8px;
-  color: #646464;
   cursor: pointer;
 }
 
@@ -26,7 +30,7 @@
 .pizza-emojis {
   display: flex;
   flex-wrap: nowrap;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
 .pizza-emojis > * {
@@ -63,6 +67,7 @@
   opacity: 0;
   transition: all 2s ease;
   text-align: center;
+  color: #333;
 }
 
 /* When the modal is "open", fade and slide it in */
@@ -77,6 +82,7 @@
 }
 
 .order-item {
+  box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -90,6 +96,7 @@
 
 .order-total {
   display: flex;
+  box-sizing: border-box;
   justify-content: flex-end;
   align-items: center;
   gap: 16px;
@@ -110,4 +117,8 @@
   font-size: 16px;
   font-weight: 600;
   transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+  background-color: #FFD700;
 }

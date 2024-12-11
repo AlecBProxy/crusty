@@ -1,9 +1,9 @@
 import PizzaCarousel from '../components/pizzaCarousel/PizzaCarousel'
 
-const PizzaListings = () => {
+const PizzaListings = ({ pizzas, addOrder }) => {
   return (
     <div>
-      <PizzaCarousel />
+      <PizzaCarousel pizzas={pizzas} addOrder={addOrder} />
     </div>
   )
 }
