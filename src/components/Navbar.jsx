@@ -1,8 +1,9 @@
-import React from "react";
 import "../styles/navbar.css";
 import logo from "../media/logo.png";
+import Orders from "./orders/Orders";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ orders, deleteOrder }) => {
   return (
     <header className="header">
       <div className="logo-section">
@@ -11,10 +12,12 @@ const Navbar = () => {
       </div>
       <nav className="nav">
         <a href="/">Home</a>
+        <Link to="/pizza-listings">Pizzas</Link>
         <a href="/customize">Customize</a>
         <a href="/order">Order</a>
         <a href="/our-story">Our Story</a>
       </nav>
+      <Orders orders={orders} deleteOrder={deleteOrder} />
     </header>
   );
 };

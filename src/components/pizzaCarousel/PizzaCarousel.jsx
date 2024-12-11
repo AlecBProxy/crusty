@@ -14,7 +14,7 @@ import './pizzaCarousel.css'
 //   { name: 'Supreme', image: 'https://pinza.com/application/files/5516/3594/0715/0000_PINZA-mask-slice-MEATY-Shish.png', price: 17, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Pepperoni', 'Sausage', 'Mushrooms', 'Bell Peppers', 'Olives'] },
 // ];
 
-const Pizza = ({ pizzas, onAddOrder }) => {
+const PizzaCarousel = ({ pizzas, addOrder }) => {
 
   const DRAG_BUFFER = 50
 
@@ -39,7 +39,7 @@ const Pizza = ({ pizzas, onAddOrder }) => {
   }
 
   const handleAddOrder = (order) => {
-    onAddOrder(order)
+    addOrder(order)
   }
 
 
@@ -112,4 +112,4 @@ const Dots = ({ imageIndex, setImageIndex, pizzas }) => {
   )
 }
 
-export default Pizza
+export default PizzaCarousel

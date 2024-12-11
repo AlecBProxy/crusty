@@ -39,7 +39,7 @@ const Orders = ({ orders, deleteOrder }) => {
           {orders.length < 5 ?
             orders.map((_, index) => (
               <p key={index}>🍕</p>
-            )) : <p className="pizza-many">🍕✖️{orders.length}</p>
+            )) : <p className="pizza-many">🍕✖️ {orders.length}</p>
           }
         </div>
         <p>${totalPrice}</p>

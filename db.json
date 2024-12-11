@@ -96,11 +96,35 @@
       "name": "Veggie",
       "size": 16,
       "price": 16
+    },
+    {
+      "id": "d067",
+      "name": "Margherita",
+      "size": 18,
+      "price": 14
+    },
+    {
+      "id": "ef53",
+      "name": "Pepperoni",
+      "size": 16,
+      "price": 14
     }
   ],
   "ingredients": [
-    { "id": 1, "name": "Cheese", "price": 1.5 },
-    { "id": 2, "name": "Pepperoni", "price": 2.0 },
-    { "id": 3, "name": "Peppers", "price": 1.0 }
+    {
+      "id": "1",
+      "name": "Cheese",
+      "price": 1.5
+    },
+    {
+      "id": "2",
+      "name": "Pepperoni",
+      "price": 2
+    },
+    {
+      "id": "3",
+      "name": "Peppers",
+      "price": 1
+    }
   ]
 }
