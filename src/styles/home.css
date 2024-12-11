@@ -1,5 +1,9 @@
 .home-container {
   background-color: #ee4130;
+  background-image: url(/src/media/pizzapattern.png);
+  background-image: repeat;
+  background-size: auto;
+  background-position: top left;
   color: white;
   font-family: "Arial", sans-serif;
   min-height: 100vh;
@@ -42,6 +46,24 @@
 
 .left-column {
   padding: 20px;
+}
+
+.order-button {
+  background: linear-gradient(to right, #2b7e0a, black);
+  position: absolute;
+  top: 450px;
+  right: 700px;
+  width: 10%;
+  transform: rotate(10deg);
+  font-size: larger;
+  cursor: pointer;
+  transition: background-position 0.3s ease;
+  background-size: 200% 100%;
+  background-position: left;
+}
+
+.order-button:hover {
+  background-position: right;
 }
 
 .left-column h2 {

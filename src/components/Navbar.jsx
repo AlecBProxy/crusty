@@ -10,6 +10,7 @@ const Navbar = () => {
         <h1 className="brand-name">Crusti</h1>
       </div>
       <nav className="nav">
+        <a href="/">Home</a>
         <a href="/customize">Customize</a>
         <a href="/order">Order</a>
         <a href="/our-story">Our Story</a>
