@@ -26,8 +26,8 @@ const Home = () => {
         <Link to="/order">
           <button className="order-button">Order Now!</button>
         </Link>
-        <div class="banner">
-          <div class="banner-text">
+        <div className="banner">
+          <div className="banner-text">
             Reasonably Fast Delivery * Reasonably Fast Delivery * Reasonably
             Fast Delivery *
           </div>
