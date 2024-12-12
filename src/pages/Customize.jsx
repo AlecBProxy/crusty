@@ -1,120 +1,146 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/customize.css";
+import pizzaBanner from '../media/pizza_customize_banner.jpg';
+import pizza_custom_preview from '../media/pizza-preview_customize.jpg';
+import Cheese from '../media/Ingredients/Cheese.jpg';
+import Pepperoni from '../media/Ingredients/Pepperoni.jpg';
+import Salami from '../media/Ingredients/Salami.jpg';
+import Ham from '../media/Ingredients/Ham.jpg';
+import Bacon from '../media/Ingredients/Bacon.jpg';
+import GreenPepper from '../media/Ingredients/GreenPepper.jpg';
+import RedPepper from '../media/Ingredients/RedPepper.jpg';
+import Onion from '../media/Ingredients/Onion.jpg';
+import Mushrooms from '../media/Ingredients/Mushrooms.jpg';
+import BlackOlives from '../media/Ingredients/BlackOlives.jpg';
+import ExtraCheese from '../media/Ingredients/ExtraCheese.jpg';
+import ParmesanCheese from '../media/Ingredients/ParmesanCheese.jpg';
+import RedChiliFlakes from '../media/Ingredients/RedChiliFlakes.jpg';
+import GarlicAndHerbs from '../media/Ingredients/GarlicAndHerbs.jpg';
 
-// CustomizePizza Component
+const toppingImages = {
+  Cheese, Pepperoni, Salami, Ham, Bacon, GreenPepper, RedPepper, Onion, Mushrooms, BlackOlives,
+};
+
+const extraImages = {
+  ExtraCheese, ParmesanCheese, RedChiliFlakes, GarlicAndHerbs,
+};
+
 function CustomizePizza() {
   const [size, setSize] = useState('Medium');
   const [toppings, setToppings] = useState([]);
   const [extras, setExtras] = useState([]);
+  const [specialInstructions, setSpecialInstructions] = useState('');
 
-  const availableToppings = ['Cheese', 'Pepperoni', 'Salami', 'Ham', 'Bacon', 'Ground Beef', 'Green Pepper', 'Red Pepper', 'Onion', 'Mushrooms', 'Black Olives'];
-  const availableExtras = ['Extra Cheese', 'Parmesan Cheese', 'Red Chili Flakes', 'Extra Garlic & Herbs'];
+  const availableToppings = Object.keys(toppingImages);
+  const availableExtras = Object.keys(extraImages);
 
   useEffect(() => {
-    const savedSize = localStorage.getItem('pizzaSize');
-    const savedToppings = JSON.parse(localStorage.getItem('pizzaToppings') || '[]');
-    const savedExtras = JSON.parse(localStorage.getItem('pizzaExtras') || '[]');
-    
-    if (savedSize) setSize(savedSize);
-    if (savedToppings.length) setToppings(savedToppings);
-    if (savedExtras.length) setExtras(savedExtras);
+    setSize(localStorage.getItem('pizzaSize') || 'Medium');
+    setToppings(JSON.parse(localStorage.getItem('pizzaToppings') || '[]'));
+    setExtras(JSON.parse(localStorage.getItem('pizzaExtras') || '[]'));
+    setSpecialInstructions(localStorage.getItem('pizzaSpecialInstructions') || '');
   }, []);
 
   const handleSizeChange = (event) => {
-    const newSize = event.target.value; 
-    setSize(newSize); 
-    localStorage.setItem('pizzaSize', newSize); 
+    const newSize = event.target.value;
+    setSize(newSize);
+    localStorage.setItem('pizzaSize', newSize);
   };
 
-  const handleToppingChange = (event) => {
-    const selectedTopping = event.target.value;
-    let updatedToppings;
-    if (toppings.includes(selectedTopping)) {
-        updatedToppings = toppings.filter(topping => topping !== selectedTopping);
-    } else {
-        updatedToppings = [...toppings, selectedTopping];
-    }
-    setToppings(updatedToppings);
-    localStorage.setItem('pizzaToppings', JSON.stringify(updatedToppings));
+  const handleCheckboxChange = (item, setItems, itemsKey) => {
+    const updatedItems = itemsKey.includes(item)
+      ? itemsKey.filter(i => i !== item)
+      : [...itemsKey, item];
+    setItems(updatedItems);
+    localStorage.setItem(`pizza${setItems === setToppings ? 'Toppings' : 'Extras'}`, JSON.stringify(updatedItems));
   };
 
-  const handleExtraOptionChange = (event) => {
-    const selectedOption = event.target.value;
-    let updatedExtras;
-    if (extras.includes(selectedOption)) {
-        updatedExtras = extras.filter(option => option !== selectedOption);
-    } else {
-        updatedExtras = [...extras, selectedOption];
-    }
-    setExtras(updatedExtras);
-    localStorage.setItem('pizzaExtras', JSON.stringify(updatedExtras));
+  const handleSpecialInstructionsChange = (event) => {
+    const instructions = event.target.value;
+    setSpecialInstructions(instructions);
+    localStorage.setItem('pizzaSpecialInstructions', instructions);
   };
+
+  const handleAddToCart = () => {
+    const cartData = {
+      size,
+      toppings,
+      extras,
+      specialInstructions,
+    };
+    localStorage.setItem('cartItem', JSON.stringify(cartData));
+    alert('Your selections have been added to the cart!');
+  };
+
+  const renderOptions = (items, setItems, itemsKey, images) =>
+    items.map(item => (
+      <div key={item} className="option-container">
+        <input
+          type="checkbox"
+          value={item}
+          checked={itemsKey.includes(item)}
+          onChange={() => handleCheckboxChange(item, setItems, itemsKey)}
+        />
+        <label>{item}</label>
+        <img src={images[item]} alt={item} className="option-image" />
+      </div>
+    ));
 
   return (
     <div className="customize-container">
-        <div className="customize-pizza">
-        <h1>Customize your pizza the Crusti way!</h1>
+      {/* Full-Width Banner */}
+      <div className="custom_banner">
+        <img src={pizzaBanner} alt="Custom Banner" />
+        <h1 className="banner-title">Customize</h1>
+      </div>
 
-        <div className="hero-banner">
-        <img src="" alt="Delicious Pizza" className="banner-image" />
+      {/* Two-Column Content Section */}
+      <div className="content-section">
+        {/* Left Section: Pizza Preview */}
+        <div className="left-section">
+          <div className="custom-preview">
+            <img src={pizza_custom_preview} alt="Pizza Preview" className="customize-picture" />
+          </div>
         </div>
 
-        {/* Size Selection */}
-        <div className="size-selection">
-            <h3>Select Size:</h3>
-            <select value={size} onChange={handleSizeChange}>
-            <option value="Small (10 in.)">Small (10 in.)</option>
-            <option value="Medium (14 in.)">Medium (14 in.)</option>
-            <option value="Large (16 in.)">Large (16 in.)</option>
-            <option value="Extra Large (18 in.)">Extra Large (18 in.)</option>
-            </select>
-        </div>
-
-        {/* Topping Selector */}
-        <div className="toppings-selection">
-            <h3>Select Toppings:</h3>
-            {availableToppings.map((topping) => (
-            <div key={topping}>
-                <input
-                type="checkbox"
-                value={topping}
-                checked={toppings.includes(topping)}
-                onChange={handleToppingChange}
-                />
-                <label>{topping}</label>
+        {/* Right Section: Selection */}
+        <div className="right-section">
+          <div className="customizer-section">
+            <h3 className="selection-title">Selection</h3>
+            <div className="size-selection">
+              <h3>Size:</h3>
+              <select value={size} onChange={handleSizeChange} className="size-dropdown">
+                <option value="Small (10 in.)">Small (10 in.)</option>
+                <option value="Medium (14 in.)">Medium (14 in.)</option>
+                <option value="Large (16 in.)">Large (16 in.)</option>
+                <option value="Extra Large (18 in.)">Extra Large (18 in.)</option>
+              </select>
             </div>
-            ))}
-        </div>
-
-        {/* Extra Options Selection */}
-        <div className="extra-options-selection">
-            <h3>Select Extra Options:</h3>
-            {availableExtras.map((option) => (
-            <div key={option}>
-                <input
-                type="checkbox"
-                value={option}
-                checked={extras.includes(option)}
-                onChange={handleExtraOptionChange}
-                />
-                <label>{option}</label>
+            <div className="toppings-selection">
+              <h3>Toppings:</h3>
+              {renderOptions(availableToppings, setToppings, toppings, toppingImages)}
             </div>
-            ))}
-        </div>
+            <div className="extra-options-selection">
+              <h3>Extras:</h3>
+              {renderOptions(availableExtras, setExtras, extras, extraImages)}
+            </div>
+            <div className="special-instructions">
+              <h3>Special Instructions:</h3>
+              <textarea
+                placeholder="Type here..."
+                value={specialInstructions}
+                onChange={handleSpecialInstructionsChange}
+                className="special-instructions-textarea"
+              ></textarea>
 
-        {/* Summary of the Pizza */}
-        <div className="pizza-summary">
-            <h3>Your Pizza:</h3>
-            <p>Size: {size}</p>
-            <p>Toppings: {toppings.length > 0 ? toppings.join(', ') : 'None'}</p>
-            <p>Extra Options: {extras.length > 0 ? extras.join(', ') : 'None'}</p>
+              {/* Add to Cart Button */}
+              <button onClick={handleAddToCart} className="add-to-cart-button">
+                Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
-        
-         {/* Picture Section */}
-        <div className="picture-section">
-            <img src="your-image-url.jpg" alt="Pizza" className="customize-picture" />
-        </div>
-        </div>
+      </div>
     </div>
   );
 }
