@@ -7,6 +7,7 @@ import Order from "./pages/Order";
 import Customize from "./pages/Customize";
 import PizzaListings from "./pages/PizzaListings";
 import StoryPage from "./pages/StoryPage";
+import Cart from "./pages/Cart";
 
 const App = () => {
   const [pizzas, setPizzas] = useState([]);
@@ -85,6 +86,7 @@ const App = () => {
           <Route path="/order" element={<Order />} />
           <Route path="/customize" element={<Customize />} />
           <Route path="/our-story" element={<StoryPage />} />{" "}
+          <Route path="/cart" element={<Cart />} />
           {/* Added this route */}
         </Routes>
 

@@ -16,8 +16,9 @@ import ExtraCheese from '../media/Ingredients/ExtraCheese.jpg';
 import ParmesanCheese from '../media/Ingredients/ParmesanCheese.jpg';
 import RedChiliFlakes from '../media/Ingredients/RedChiliFlakes.jpg';
 import GarlicAndHerbs from '../media/Ingredients/GarlicAndHerbs.jpg';
+import { useNavigate } from "react-router-dom";
 
-const toppingImages = {
+const ingredientImages = {
   Cheese, Pepperoni, Salami, Ham, Bacon, GreenPepper, RedPepper, Onion, Mushrooms, BlackOlives,
 };
 
@@ -25,18 +26,19 @@ const extraImages = {
   ExtraCheese, ParmesanCheese, RedChiliFlakes, GarlicAndHerbs,
 };
 
-function CustomizePizza() {
+function Customize() {
   const [size, setSize] = useState('Medium');
-  const [toppings, setToppings] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
   const [extras, setExtras] = useState([]);
   const [specialInstructions, setSpecialInstructions] = useState('');
 
-  const availableToppings = Object.keys(toppingImages);
+  const availableIngredients = Object.keys(ingredientImages);
   const availableExtras = Object.keys(extraImages);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setSize(localStorage.getItem('pizzaSize') || 'Medium');
-    setToppings(JSON.parse(localStorage.getItem('pizzaToppings') || '[]'));
+    setIngredients(JSON.parse(localStorage.getItem('pizzaIngredients') || '[]'));
     setExtras(JSON.parse(localStorage.getItem('pizzaExtras') || '[]'));
     setSpecialInstructions(localStorage.getItem('pizzaSpecialInstructions') || '');
   }, []);
@@ -52,7 +54,7 @@ function CustomizePizza() {
       ? itemsKey.filter(i => i !== item)
       : [...itemsKey, item];
     setItems(updatedItems);
-    localStorage.setItem(`pizza${setItems === setToppings ? 'Toppings' : 'Extras'}`, JSON.stringify(updatedItems));
+    localStorage.setItem(`pizza${setItems === setIngredients ? 'Ingredients' : 'Extras'}`, JSON.stringify(updatedItems));
   };
 
   const handleSpecialInstructionsChange = (event) => {
@@ -61,16 +63,20 @@ function CustomizePizza() {
     localStorage.setItem('pizzaSpecialInstructions', instructions);
   };
 
-  const handleAddToCart = () => {
-    const cartData = {
-      size,
-      toppings,
-      extras,
-      specialInstructions,
-    };
-    localStorage.setItem('cartItem', JSON.stringify(cartData));
-    alert('Your selections have been added to the cart!');
-  };
+
+    const handleAddToCart = () => {
+      const cartData = {
+        size,
+        ingredients,
+        extras,
+        specialInstructions,
+      };
+
+      // Save data to localStorage for persistence
+      localStorage.setItem('cartData', JSON.stringify(cartData));
+      // Navigate to Cart page with state
+      navigate('/cart', { state: cartData });
+      };
 
   const renderOptions = (items, setItems, itemsKey, images) =>
     items.map(item => (
@@ -92,7 +98,9 @@ function CustomizePizza() {
       <div className="custom_banner">
         <img src={pizzaBanner} alt="Custom Banner" />
         <h1 className="banner-title">Customize</h1>
-      </div>
+        </div>
+  
+    
 
       {/* Two-Column Content Section */}
       <div className="content-section">
@@ -116,9 +124,9 @@ function CustomizePizza() {
                 <option value="Extra Large (18 in.)">Extra Large (18 in.)</option>
               </select>
             </div>
-            <div className="toppings-selection">
+            <div className="ingredients-selection">
               <h3>Toppings:</h3>
-              {renderOptions(availableToppings, setToppings, toppings, toppingImages)}
+              {renderOptions(availableIngredients, setIngredients, ingredients, ingredientImages)}
             </div>
             <div className="extra-options-selection">
               <h3>Extras:</h3>
@@ -142,7 +150,9 @@ function CustomizePizza() {
         </div>
       </div>
     </div>
-  );
-}
 
-export default CustomizePizza;
+  
+  );
+};
+
+export default Customize;

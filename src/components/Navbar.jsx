@@ -13,7 +13,7 @@ const Navbar = ({ orders, deleteOrder }) => {
       <nav className="nav">
         <a href="/">Home</a>
         <Link to="/pizza-listings">Pizzas</Link>
-        <a href="/customize">Customize</a>
+        <Link to="/customize">Customize</Link>
         <a href="/order">Order</a>
         <a href="/our-story">Our Story</a>
       </nav>
