@@ -11,9 +11,10 @@ import StoryPage from "./pages/StoryPage";
 const App = () => {
   const [pizzas, setPizzas] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
 
   const fetchPizzas = async () => {
-    const response = await fetch("http://localhost:3001/pizzas");
+    const response = await fetch("http://localhost:3002/pizzas");
     const pizzas = await response.json();
     return pizzas;
   };
@@ -22,6 +23,12 @@ const App = () => {
     const response = await fetch("http://localhost:3002/orders");
     const orders = await response.json();
     return orders;
+  };
+
+  const fetchIngredients = async () => {
+    const response = await fetch("http://localhost:3002/ingredients");
+    const ingredients = await response.json();
+    return ingredients;
   };
 
   const addOrder = async (order) => {
@@ -57,6 +64,11 @@ const App = () => {
       setOrders(ordersFromServer);
     };
     getOrders();
+
+    const getIngredients = async () => {
+      const ingredients = await fetchIngredients();
+      console.log(ingredients);
+    }
   }, []);
 
   return (

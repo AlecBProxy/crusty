@@ -76,7 +76,7 @@ const Orders = ({ orders, deleteOrder }) => {
                 <p>${totalPrice}</p>
               </div>
               <Link
-                to="/events"
+                to="/checkout"
                 className="order-btn"
                 onClick={closeModal}
               >Order Now</Link>

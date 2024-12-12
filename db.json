@@ -98,16 +98,10 @@
       "price": 16
     },
     {
-      "id": "d067",
-      "name": "Margherita",
-      "size": 18,
-      "price": 14
-    },
-    {
-      "id": "ef53",
-      "name": "Pepperoni",
+      "id": "c4b2",
+      "name": "Veggie",
       "size": 16,
-      "price": 14
+      "price": 16
     }
   ],
   "ingredients": [
