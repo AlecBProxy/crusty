@@ -1,0 +1,237 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color: #ee4130;
+}
+
+@font-face {
+  font-family: "Send Flowers";
+  src: url("/Story-page/fonts/SendFlowers.ttf") format("truetype");
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ee4130;
+  padding: 10px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ee4130;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 26px;
+  font-family: "Send Flowers", cursive;
+  font-size: 2rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+}
+
+.story {
+  background-color: #ee4130;
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.story h2 {
+  font-family: "Satisfy", cursive;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.story p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.story-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.column {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .story-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .story p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+.pizza-section {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.pizza-img {
+  width: 100%;
+  max-height: 800px;
+  object-fit: cover;
+}
+
+.pizza-overlay {
+  position: relative;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: black;
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #ee4130, #d12f23);
+  color: #fff;
+}
+
+.testimonials-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+
+.testimonial img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.testimonial strong {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.3rem;
+  color: #fff;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  background-color: #ee4130;
+  border-top: 1px solid white;
+}
+
+.footer .social-icons img {
+  width: 24px;
+  margin: 0 10px;
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: black;
+}
