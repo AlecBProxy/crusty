@@ -64,10 +64,19 @@ const Orders = ({ orders, deleteOrder }) => {
               <div className="order-list">
                 {orders.map((order, index) => (
                   <div key={index} className="order-item">
-                    <p>{order.name}</p>
-                    <p>{order.size}&quot;</p>
-                    <p>${order.price}</p>
-                    <p onClick={() => deleteOrder(order.id)}>🅧</p>
+                    <div className="order-top">
+                      <p>{order.name}</p>
+                      <p>{order.size}&quot;</p>
+                      <p>${order.price}</p>
+                      <p onClick={() => deleteOrder(order.id)}>🅧</p>
+                    </div>
+                    {order.ingredients && (
+                      <ul className="order-ingredients">
+                        {order.ingredients.map((ingredient, index) => (
+                          <li key={index}>{ingredient}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 ))}
               </div>

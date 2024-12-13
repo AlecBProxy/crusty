@@ -8,7 +8,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await fetch("http://localhost:3000/cart");
+        const response = await fetch("http://localhost:3002/orders");
         if (response.ok) {
           const data = await response.json();
           setCartItems(data); // Update state with fetched data

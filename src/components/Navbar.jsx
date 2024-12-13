@@ -16,7 +16,7 @@ const Navbar = ({ orders, deleteOrder }) => {
         <Link to="/customize">Customize</Link>
         <a href="/order">Order</a>
         <a href="/our-story">Our Story</a>
-        <Link to="/cart">Cart - NH</Link>
+        {/* <Link to="/cart">Cart - NH</Link> */}
       </nav>
       <Orders orders={orders} deleteOrder={deleteOrder} />
     </header>

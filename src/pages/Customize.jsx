@@ -36,40 +36,41 @@ function Customize() {
   const [ingredients, setIngredients] = useState([]);
   const [extras, setExtras] = useState([]);
   const [specialInstructions, setSpecialInstructions] = useState('');
+  // const [cartItems, setCartItems] = useState([]);
 
   const availableIngredients = Object.keys(ingredientImages);
   const availableExtras = Object.keys(extraImages);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setSize(localStorage.getItem('pizzaSize') || 'Medium');
-    setIngredients(JSON.parse(localStorage.getItem('pizzaIngredients') || '[]'));
-    setExtras(JSON.parse(localStorage.getItem('pizzaExtras') || '[]'));
-    setSpecialInstructions(localStorage.getItem('pizzaSpecialInstructions') || '');
-  }, []);
+  // useEffect(() => {
+  //   setSize(localStorage.getItem('pizzaSize') || 'Medium');
+  //   setIngredients(JSON.parse(localStorage.getItem('pizzaIngredients') || '[]'));
+  //   setExtras(JSON.parse(localStorage.getItem('pizzaExtras') || '[]'));
+  //   setSpecialInstructions(localStorage.getItem('pizzaSpecialInstructions') || '');
+  // }, []);
 
-  useEffect(() => {
-    const fetchCartItems = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/cart");
-        if (response.ok) {
-          const data = await response.json();
-          setCartItems(data);
-        } else {
-          console.error("Failed to fetch cart items.");
-        }
-      } catch (error) {
-        console.error("Error fetching cart items:", error);
-      }
-    };
-  
-    fetchCartItems();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCartItems = async () => {
+  //     try {
+  //       const response = await fetch("http://localhost:3002/cart");
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setCartItems(data);
+  //       } else {
+  //         console.error("Failed to fetch cart items.");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching cart items:", error);
+  //     }
+  //   };
+
+  //   fetchCartItems();
+  // }, []);
 
   const handleSizeChange = (event) => {
     const newSize = event.target.value;
     setSize(newSize);
-    localStorage.setItem('pizzaSize', newSize);
+    // localStorage.setItem('pizzaSize', newSize);
   };
 
   const handleCheckboxChange = (item, setItems, itemsKey) => {
@@ -77,7 +78,7 @@ function Customize() {
       ? itemsKey.filter(i => i !== item)
       : [...itemsKey, item];
     setItems(updatedItems);
-    localStorage.setItem(`pizza${setItems === setIngredients ? 'Ingredients' : 'Extras'}`, JSON.stringify(updatedItems));
+    // localStorage.setItem(`pizza${setItems === setIngredients ? 'Ingredients' : 'Extras'}`, JSON.stringify(updatedItems));
   };
 
   const handleSpecialInstructionsChange = (event) => {
@@ -87,18 +88,18 @@ function Customize() {
   };
 
   const handleAddToCart = async () => {
-    const cartData = { size, ingredients, extras, specialInstructions };
-  
+    const cartData = { size, ingredients, extras, specialInstructions, price: 16, name: 'Custom Pizza' };
+
     try {
-      const response = await fetch("http://localhost:3000/cart", {
+      const response = await fetch("http://localhost:3002/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(cartData),
       });
-  
+
       if (response.ok) {
         alert("Your selections have been added to the cart!");
-        navigate("/cart");
+        // navigate("/order");
       } else {
         console.error("Failed to add to cart.");
       }
@@ -127,17 +128,17 @@ function Customize() {
       <div className="custom_banner">
         <img src={pizzaBanner} alt="Custom Banner" />
         <h1 className="banner-title">Customize</h1>
-        </div>
-  
+      </div>
+
       {/* Two-Column Content Section */}
       <div className="content-section">
         {/* Left Section: Pizza Preview */}
-        <div className="left-section">
+        {/* <div className="left-section">
           <div className="custom-preview">
             <img src={pizza_custom_preview} alt="Pizza Preview" className="customize-picture" />
           </div>
-        
-        </div>
+
+        </div> */}
 
         {/* Right Section: Selection */}
         <div className="right-section">
@@ -146,18 +147,18 @@ function Customize() {
             <div className="size-selection">
               <h3>Size:</h3>
               <select value={size} onChange={handleSizeChange} className="size-dropdown">
-                <option value="Small (10 in.)">Small (10 in.)</option>
-                <option value="Medium (14 in.)">Medium (14 in.)</option>
-                <option value="Large (16 in.)">Large (16 in.)</option>
-                <option value="Extra Large (18 in.)">Extra Large (18 in.)</option>
+                <option value="10">Small (10 in.)</option>
+                <option value="14">Medium (14 in.)</option>
+                <option value="16">Large (16 in.)</option>
+                <option value="18">Extra Large (18 in.)</option>
               </select>
             </div>
+            <h3>Toppings:</h3>
             <div className="ingredients-selection">
-              <h3>Toppings:</h3>
               {renderOptions(availableIngredients, setIngredients, ingredients, ingredientImages)}
             </div>
+            <h3>Extras:</h3>
             <div className="extra-options-selection">
-              <h3>Extras:</h3>
               {renderOptions(availableExtras, setExtras, extras, extraImages)}
             </div>
             <div className="special-instructions">
@@ -171,7 +172,7 @@ function Customize() {
 
               {/* Add to Cart Button */}
               <button onClick={handleAddToCart} className="add-to-cart-button">
-                Add to Cart
+                <a href="/order">Add to Cart</a>
               </button>
             </div>
           </div>
@@ -179,7 +180,7 @@ function Customize() {
       </div>
     </div>
 
-  
+
   );
 };
 

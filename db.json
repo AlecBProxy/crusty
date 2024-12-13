@@ -26,6 +26,20 @@
         "ExtraCheese"
       ],
       "specialInstructions": "Handle with care"
+    },
+    {
+      "id": "02cf",
+      "size": "Large (16 in.)",
+      "ingredients": [
+        "BlackOlives",
+        "GreenPepper"
+      ],
+      "extras": [
+        "RedChiliFlakes"
+      ],
+      "specialInstructions": "",
+      "price": 16,
+      "name": "Custom Pizza"
     }
   ],
   "pizzas": [
@@ -127,10 +141,95 @@
       "price": 16
     },
     {
-      "id": "c4b2",
-      "name": "Veggie",
+      "id": "a26e",
+      "name": "Margherita",
+      "size": 18,
+      "price": 14
+    },
+    {
+      "id": "ad2b",
+      "name": "Margherita",
       "size": 16,
-      "price": 16
+      "price": 12
+    },
+    {
+      "id": "66ae",
+      "size": "16",
+      "ingredients": [
+        "TomatoSauce",
+        "GreenPepper",
+        "Sausage"
+      ],
+      "extras": [
+        "ExtraCheese"
+      ],
+      "specialInstructions": "Blah",
+      "price": 16,
+      "name": "Custom Pizza"
+    },
+    {
+      "id": "0ef7",
+      "size": "18",
+      "ingredients": [
+        "TomatoSauce",
+        "Pepperoni",
+        "RedPepper",
+        "Basil"
+      ],
+      "extras": [
+        "ParmesanCheese"
+      ],
+      "specialInstructions": "",
+      "price": 16,
+      "name": "Custom Pizza"
+    },
+    {
+      "id": "abca",
+      "size": "Medium",
+      "ingredients": [
+        "Salami",
+        "Ham",
+        "Bacon",
+        "GreenPepper",
+        "RedPepper",
+        "Onion",
+        "Mushrooms",
+        "BlackOlives",
+        "BBQSauce",
+        "Basil"
+      ],
+      "extras": [],
+      "specialInstructions": "",
+      "price": 16,
+      "name": "Custom Pizza"
+    },
+    {
+      "id": "4c0c",
+      "size": "Medium",
+      "ingredients": [
+        "Salami",
+        "RedPepper"
+      ],
+      "extras": [
+        "ParmesanCheese"
+      ],
+      "specialInstructions": "",
+      "price": 16,
+      "name": "Custom Pizza"
+    },
+    {
+      "id": "b720",
+      "size": "Medium",
+      "ingredients": [
+        "Salami",
+        "RedPepper"
+      ],
+      "extras": [
+        "ParmesanCheese"
+      ],
+      "specialInstructions": "",
+      "price": 16,
+      "name": "Custom Pizza"
     }
   ],
   "ingredients": [
