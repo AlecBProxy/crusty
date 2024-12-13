@@ -2,9 +2,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #ee4130; 
+  font-family: "Arial", sans-serif;
+  background-color: #ee4130;
   box-sizing: border-box;
+  cursor: url("/pointer.png"), auto;
 }
 
 /* Banner Section */
@@ -88,6 +89,8 @@ body {
 }
 
 .ingredients-selection {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   max-width: 180px;
 }
@@ -130,7 +133,7 @@ h3 {
 }
 
 .option-image {
-  width: 40px; 
+  width: 40px;
   height: 40px;
   margin-left: 10px;
   border-radius: 4px;
@@ -163,4 +166,3 @@ h3 {
 .add-to-cart-button:hover {
   background-color: #d7322a;
 }
-

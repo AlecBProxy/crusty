@@ -1,0 +1,12 @@
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  text-align: center;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}

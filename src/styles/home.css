@@ -1,22 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Caprasimo:regular);
+@import url(https://fonts.googleapis.com/css?family=Kaisei+Opti:regular,500,700);
+
+body {
+  cursor: url("/pointer.png"), auto;
+}
+
 .home-container {
   background-color: #ee4130;
-  background-image: url(/src/media/pizzapattern.png);
+  background-image: url(src/media/pizzapattern.png);
   background-image: repeat;
   background-size: auto;
   background-position: top left;
   color: white;
-  font-family: "Arial", sans-serif;
+  font-family: "Caprasimo";
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
   min-width: 1500px;
   overflow: hidden;
+  cursor: url("/pointer.png"), auto;
 }
 
 .brand-name {
   font-size: 40px;
-  font-weight: bold;
+  font-family: "Kaisei Opti";
 }
 
 .nav {
@@ -115,6 +123,14 @@
   right: -25%;
   width: 1200px;
   animation: spin 200s linear infinite;
+  pointer-events: none;
+}
+
+.badge {
+  position: absolute;
+  bottom: 70%;
+  right: 40%;
+  width: 250px;
   pointer-events: none;
 }
 
