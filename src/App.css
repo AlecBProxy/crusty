@@ -41,17 +41,3 @@
   color: #888;
 }
 
-.testimonial {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  height: 200px;
-}
-
-.testimonial img {
-}
-
-.testimonial-group {
-  display: flex;
-  flex-direction: row;
-}
