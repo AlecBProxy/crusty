@@ -7,6 +7,7 @@ import face1 from "../media/face1.png";
 import face2 from "../media/face2.png";
 import face3 from "../media/face3.png";
 import { Link } from "react-router-dom";
+import badge from "../media/badge.png";
 
 const Home = () => {
   return (
@@ -35,6 +36,7 @@ const Home = () => {
         <div className="bottom-banner">
           <img src={farmhillbanner} alt="Farm Hill Banner" />
         </div>
+        <img src={badge} alt="Badge" className="badge" />
 
         <img src={pizza} alt="Pizza" className="pizza-image" />
         <div className="testimonial-group">
