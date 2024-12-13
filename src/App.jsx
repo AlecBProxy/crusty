@@ -7,6 +7,7 @@ import Order from "./pages/Order";
 import Customize from "./pages/Customize";
 import PizzaListings from "./pages/PizzaListings";
 import StoryPage from "./pages/StoryPage";
+import Testing from "./pages/Testing";
 // import Cart from "./pages/Cart";
 
 const App = () => {
@@ -86,6 +87,7 @@ const App = () => {
           <Route path="/order" element={<Order />} />
           <Route path="/customize" element={<Customize />} />
           <Route path="/our-story" element={<StoryPage />} />
+          <Route path="/testing" element={<Testing orders={orders} addOrder={addOrder} />} />
           {/* <Route path="/cart" element={<Cart />} /> */}
           {/* Added this route */}
         </Routes>
