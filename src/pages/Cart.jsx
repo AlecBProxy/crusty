@@ -1,39 +1,45 @@
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
 const Cart = () => {
-  const { state: orderData } = useLocation();
-  const [cartData, setCartData] = useState(orderData);
+  const [cartItems, setCartItems] = useState([]); // Declare state for cart items
 
   useEffect(() => {
-    if (!orderData) {
-      const savedData = JSON.parse(localStorage.getItem('cartData'));
-      setCartData(savedData);
-    } else {
-      localStorage.setItem('cartData', JSON.stringify(orderData));
-    }
-  }, [orderData]);
+    const fetchCartItems = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/cart");
+        if (response.ok) {
+          const data = await response.json();
+          setCartItems(data); // Update state with fetched data
+        } else {
+          console.error("Failed to fetch cart items.");
+        }
+      } catch (error) {
+        console.error("Error fetching cart items:", error);
+      }
+    };
 
-  if (!cartData) {
-    return <p>No order data available. Please customize your pizza first!</p>;
-  }
+    fetchCartItems();
+  }, []);
 
   return (
-    <><div>
-          <h1>Your Order</h1>
-          <p><strong>Size:</strong> {cartData.size}</p>
-          <p><strong>Toppings:</strong> {orderData.ingredients.join(', ')}</p>
-          <p><strong>Extras:</strong> {cartData.extras.join(', ')}</p>
-          <p><strong>Special Instructions:</strong> {cartData.specialInstructions}</p>
-      </div><div>
-              {/* Existing Cart content */}
-              <Link to="/customize">
-                  <button>Back to Customize</button>
-              </Link>
-          </div></>
-    
-
+    <div>
+      <h1>Your Cart</h1>
+      {cartItems.length > 0 ? (
+        cartItems.map((item, index) => (
+          <div key={index}>
+            <p><strong>Size:</strong> {item.size}</p>
+            <p><strong>Ingredients:</strong> {item.ingredients.join(", ")}</p>
+            <p><strong>Extras:</strong> {item.extras.join(", ")}</p>
+            <p><strong>Special Instructions:</strong> {item.specialInstructions}</p>
+            <hr />
+          </div>
+        ))
+      ) : (
+        <p>Your cart is empty.</p>
+      )}
+    </div>
   );
 };
 

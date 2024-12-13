@@ -16,10 +16,15 @@ import ExtraCheese from '../media/Ingredients/ExtraCheese.jpg';
 import ParmesanCheese from '../media/Ingredients/ParmesanCheese.jpg';
 import RedChiliFlakes from '../media/Ingredients/RedChiliFlakes.jpg';
 import GarlicAndHerbs from '../media/Ingredients/GarlicAndHerbs.jpg';
+import BBQSauce from '../media/Ingredients/BBQSauce.jpg';
+import Basil from '../media/Ingredients/Basil.jpg';
+import Pineapple from '../media/Ingredients/Pineapple.jpg';
+import Sausage from '../media/Ingredients/Sausage.jpg';
+import TomatoSauce from '../media/Ingredients/TomatoSauce.jpg';
 import { useNavigate } from "react-router-dom";
 
 const ingredientImages = {
-  Cheese, Pepperoni, Salami, Ham, Bacon, GreenPepper, RedPepper, Onion, Mushrooms, BlackOlives,
+  TomatoSauce, Cheese, Pepperoni, Salami, Ham, Bacon, GreenPepper, RedPepper, Onion, Mushrooms, BlackOlives, BBQSauce, Basil, Pineapple, Sausage
 };
 
 const extraImages = {
@@ -43,6 +48,24 @@ function Customize() {
     setSpecialInstructions(localStorage.getItem('pizzaSpecialInstructions') || '');
   }, []);
 
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/cart");
+        if (response.ok) {
+          const data = await response.json();
+          setCartItems(data);
+        } else {
+          console.error("Failed to fetch cart items.");
+        }
+      } catch (error) {
+        console.error("Error fetching cart items:", error);
+      }
+    };
+  
+    fetchCartItems();
+  }, []);
+
   const handleSizeChange = (event) => {
     const newSize = event.target.value;
     setSize(newSize);
@@ -63,20 +86,26 @@ function Customize() {
     localStorage.setItem('pizzaSpecialInstructions', instructions);
   };
 
-
-    const handleAddToCart = () => {
-      const cartData = {
-        size,
-        ingredients,
-        extras,
-        specialInstructions,
-      };
-
-      // Save data to localStorage for persistence
-      localStorage.setItem('cartData', JSON.stringify(cartData));
-      // Navigate to Cart page with state
-      navigate('/cart', { state: cartData });
-      };
+  const handleAddToCart = async () => {
+    const cartData = { size, ingredients, extras, specialInstructions };
+  
+    try {
+      const response = await fetch("http://localhost:3000/cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(cartData),
+      });
+  
+      if (response.ok) {
+        alert("Your selections have been added to the cart!");
+        navigate("/cart");
+      } else {
+        console.error("Failed to add to cart.");
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+  };
 
   const renderOptions = (items, setItems, itemsKey, images) =>
     items.map(item => (
@@ -100,8 +129,6 @@ function Customize() {
         <h1 className="banner-title">Customize</h1>
         </div>
   
-    
-
       {/* Two-Column Content Section */}
       <div className="content-section">
         {/* Left Section: Pizza Preview */}
@@ -109,6 +136,7 @@ function Customize() {
           <div className="custom-preview">
             <img src={pizza_custom_preview} alt="Pizza Preview" className="customize-picture" />
           </div>
+        
         </div>
 
         {/* Right Section: Selection */}
