@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 const Testing = ({ orders, addOrder }) => {
-  const [name, setName] = useState("");
-  const [size, setSize] = useState("");
-  const [price, setPrice] = useState("");
+  const [name, setName] = useState("Alezx");
+  const [size, setSize] = useState(14);
+  const [price, setPrice] = useState(10);
 
   const handleSubmit = (e) => {
     e.preventDefault();
