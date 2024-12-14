@@ -20,21 +20,21 @@ const StoryPage = () => {
         <div className="story-columns">
           <div className="column">
             <p>
-              At CRUSTI, we didn’t set out to make the world’s best pizza...good
-              thing, too, because we didn’t. But hey, it’s good enough to make
+              At CRUSTI, we didn't set out to make the world's best pizza...good
+              thing, too, because we didn't. But hey, it's good enough to make
               your taste buds sing and your wallet smile. Born in the back room
-              of a "legit business" (don’t ask), our pies are hand-crafted with
-              just enough love to keep the health inspector off our backs. We’re
-              all about big flavors, bold toppings, and crust that’ll make you
-              say, “Yeah, this’ll do.”
+              of a "legit business" (don't ask), our pies are hand-crafted with
+              just enough love to keep the health inspector off our backs. We're
+              all about big flavors, bold toppings, and crust that'll make you
+              say, “Yeah, this'll do.”
             </p>
           </div>
           <div className="column">
             <p>
               Whether you're a sucker for the classics or want to
-              "fuggedaboutit" with something wild, we’ve got a pie for you. Our
+              "fuggedaboutit" with something wild, we've got a pie for you. Our
               joint is cozy enough to make you feel at home at Ma's. At CRUSTI,
-              it’s not just about the pizza (okay, it is), but also the laughs,
+              it's not just about the pizza (okay, it is), but also the laughs,
               the stories, and the occasional undercooked slice. Welcome to our
               family.
             </p>
