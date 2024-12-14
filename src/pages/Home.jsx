@@ -37,9 +37,9 @@ const Home = () => {
         </div>
         <div className="bottom-banner">
           <div className="bottom-banner-text">
-            <h2>Freshly Baked Dough</h2>
-            <h2>Freshly Baked Dough</h2>
-            <h2>Freshly Baked Dough</h2>
+            <h2>-Locally farmed ingredients</h2>
+            <h2>-Customized pies</h2>
+            <h2>-Passionate bakers</h2>
           </div>
 
           <img src={farmhillbanner} alt="Farm Hill Banner" />
@@ -50,12 +50,16 @@ const Home = () => {
         <div className="testimonial-group">
           <div className="testimonial">
             <img src={face1} alt="Face 1" />
-            <p>&quot;The crust? Perfectly crispy. Just like Ma used to make.&quot;</p>
+            <p>
+              &quot;The crust? Perfectly crispy. Just like Ma used to
+              make.&quot;
+            </p>
           </div>
           <div className="testimonial">
             <img src={face2} alt="Face 3" />
             <p>
-              &quot;Every other pizza joint will let you down after coming here.&quot;
+              &quot;Every other pizza joint will let you down after coming
+              here.&quot;
             </p>
           </div>
           <div className="testimonial">
