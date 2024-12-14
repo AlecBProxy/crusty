@@ -36,6 +36,12 @@ const Home = () => {
           </div>
         </div>
         <div className="bottom-banner">
+          <div className="bottom-banner-text">
+            <h2>Freshly Baked Dough</h2>
+            <h2>Freshly Baked Dough</h2>
+            <h2>Freshly Baked Dough</h2>
+          </div>
+
           <img src={farmhillbanner} alt="Farm Hill Banner" />
         </div>
         <img src={badge} alt="Badge" className="badge" />
