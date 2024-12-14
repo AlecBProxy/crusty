@@ -1,41 +1,58 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/customize.css";
-import pizzaBanner from '../media/pizza_customize_banner.jpg';
-import pizza_custom_preview from '../media/pizza-preview_customize.jpg';
-import Cheese from '../media/Ingredients/Cheese.jpg';
-import Pepperoni from '../media/Ingredients/Pepperoni.jpg';
-import Salami from '../media/Ingredients/Salami.jpg';
-import Ham from '../media/Ingredients/Ham.jpg';
-import Bacon from '../media/Ingredients/Bacon.jpg';
-import GreenPepper from '../media/Ingredients/GreenPepper.jpg';
-import RedPepper from '../media/Ingredients/RedPepper.jpg';
-import Onion from '../media/Ingredients/Onion.jpg';
-import Mushrooms from '../media/Ingredients/Mushrooms.jpg';
-import BlackOlives from '../media/Ingredients/BlackOlives.jpg';
-import ExtraCheese from '../media/Ingredients/ExtraCheese.jpg';
-import ParmesanCheese from '../media/Ingredients/ParmesanCheese.jpg';
-import RedChiliFlakes from '../media/Ingredients/RedChiliFlakes.jpg';
-import GarlicAndHerbs from '../media/Ingredients/GarlicAndHerbs.jpg';
-import BBQSauce from '../media/Ingredients/BBQSauce.jpg';
-import Basil from '../media/Ingredients/Basil.jpg';
-import Pineapple from '../media/Ingredients/Pineapple.jpg';
-import Sausage from '../media/Ingredients/Sausage.jpg';
-import TomatoSauce from '../media/Ingredients/TomatoSauce.jpg';
+import pizzaBanner from "../media/pizza_customize_banner.jpg";
+import pizza_custom_preview from "../media/customizepreview.png";
+import Cheese from "../media/Ingredients/Cheese.jpg";
+import Pepperoni from "../media/Ingredients/Pepperoni.jpg";
+import Salami from "../media/Ingredients/Salami.jpg";
+import Ham from "../media/Ingredients/Ham.jpg";
+import Bacon from "../media/Ingredients/Bacon.jpg";
+import GreenPepper from "../media/Ingredients/GreenPepper.jpg";
+import RedPepper from "../media/Ingredients/RedPepper.jpg";
+import Onion from "../media/Ingredients/Onion.jpg";
+import Mushrooms from "../media/Ingredients/Mushrooms.jpg";
+import BlackOlives from "../media/Ingredients/BlackOlives.jpg";
+import ExtraCheese from "../media/Ingredients/ExtraCheese.jpg";
+import ParmesanCheese from "../media/Ingredients/ParmesanCheese.jpg";
+import RedChiliFlakes from "../media/Ingredients/RedChiliFlakes.jpg";
+import GarlicAndHerbs from "../media/Ingredients/GarlicAndHerbs.jpg";
+import BBQSauce from "../media/Ingredients/BBQSauce.jpg";
+import Basil from "../media/Ingredients/Basil.jpg";
+import Pineapple from "../media/Ingredients/Pineapple.jpg";
+import Sausage from "../media/Ingredients/Sausage.jpg";
+import TomatoSauce from "../media/Ingredients/TomatoSauce.jpg";
 
 const ingredientImages = {
-  TomatoSauce, Cheese, Pepperoni, Salami, Ham, Bacon, GreenPepper, RedPepper, Onion, Mushrooms, BlackOlives, BBQSauce, Basil, Pineapple, Sausage
+  TomatoSauce,
+  Cheese,
+  Pepperoni,
+  Salami,
+  Ham,
+  Bacon,
+  GreenPepper,
+  RedPepper,
+  Onion,
+  Mushrooms,
+  BlackOlives,
+  BBQSauce,
+  Basil,
+  Pineapple,
+  Sausage,
 };
 
 const extraImages = {
-  ExtraCheese, ParmesanCheese, RedChiliFlakes, GarlicAndHerbs,
+  ExtraCheese,
+  ParmesanCheese,
+  RedChiliFlakes,
+  GarlicAndHerbs,
 };
 
 function Customize() {
-  const [size, setSize] = useState('Medium');
-  const [ingredients, setIngredients] = useState([])
+  const [size, setSize] = useState("Medium");
+  const [ingredients, setIngredients] = useState([]);
   const [extras, setExtras] = useState([]);
-  const [specialInstructions, setSpecialInstructions] = useState('');
+  const [specialInstructions, setSpecialInstructions] = useState("");
 
   const navigate = useNavigate();
 
@@ -48,16 +65,16 @@ function Customize() {
 
   const handleCheckboxChange = (item, setItems, itemsKey) => {
     const updatedItems = itemsKey.includes(item)
-      ? itemsKey.filter(i => i !== item)
+      ? itemsKey.filter((i) => i !== item)
       : [...itemsKey, item];
     setItems(updatedItems);
   };
 
   const sizePrices = {
-    "10": 12, // Small
-    "14": 15, // Medium
-    "16": 17, // Large
-    "18": 19, // Extra Large
+    10: 12, // Small
+    14: 15, // Medium
+    16: 17, // Large
+    18: 19, // Extra Large
   };
 
   const ingredientPrice = 1;
@@ -87,8 +104,6 @@ function Customize() {
       price: calculatedPrice, // Use the calculated price
     };
 
-
-
     try {
       const response = await fetch("http://localhost:3002/orders", {
         method: "POST",
@@ -97,7 +112,7 @@ function Customize() {
       });
       if (response.ok) {
         console.log("Order successfully added!");
-        // navigate("/checkout"); 
+        // navigate("/checkout");
       } else {
         console.error("Failed to add order.");
       }
@@ -107,7 +122,7 @@ function Customize() {
   };
 
   const renderOptions = (items, setItems, itemsKey, images) =>
-    items.map(item => (
+    items.map((item) => (
       <div key={item} className="option-container">
         <input
           type="checkbox"
@@ -124,13 +139,17 @@ function Customize() {
     <div className="customize-container">
       <div className="custom_banner">
         <img src={pizzaBanner} alt="Custom Banner" />
-        <h1 className="banner-title">Customize</h1>
+        <h1 className="banner-title">Customize Your Pie!</h1>
       </div>
 
       <div className="content-section">
         <div className="left-section">
           <div className="custom-preview">
-            <img src={pizza_custom_preview} alt="Pizza Preview" className="customize-picture" />
+            <img
+              src={pizza_custom_preview}
+              alt="Pizza Preview"
+              className="customize-picture"
+            />
           </div>
         </div>
 
@@ -139,7 +158,11 @@ function Customize() {
             <h3 className="selection-title">Selection</h3>
             <div className="size-selection">
               <h3>Size:</h3>
-              <select value={size} onChange={handleSizeChange} className="size-dropdown">
+              <select
+                value={size}
+                onChange={handleSizeChange}
+                className="size-dropdown"
+              >
                 <option value="10">Small (10 in.)</option>
                 <option value="14">Medium (14 in.)</option>
                 <option value="16">Large (16 in.)</option>
@@ -148,7 +171,12 @@ function Customize() {
             </div>
             <h3>Toppings:</h3>
             <div className="ingredients-selection">
-              {renderOptions(availableIngredients, setIngredients, ingredients, ingredientImages)}
+              {renderOptions(
+                availableIngredients,
+                setIngredients,
+                ingredients,
+                ingredientImages
+              )}
             </div>
             <h3>Extras:</h3>
             <div className="extra-options-selection">
@@ -162,13 +190,29 @@ function Customize() {
                 onChange={handleSpecialInstructionsChange}
                 className="special-instructions-textarea"
               ></textarea>
-
-
             </div>
             <div className="order-buttons">
-              <a onClick={handleAddToOrder} href="/pizza-listings" className="add-to-order-button">Continue browsing</a>
-              <a onClick={handleAddToOrder} href="/customize" className="add-to-order-button">Add another custom Pizza</a>
-              <a onClick={handleAddToOrder} href="/checkout" className="add-to-order-button">Checkout</a>
+              <a
+                onClick={handleAddToOrder}
+                href="/pizza-listings"
+                className="add-to-order-button"
+              >
+                Continue browsing
+              </a>
+              <a
+                onClick={handleAddToOrder}
+                href="/customize"
+                className="add-to-order-button"
+              >
+                Add another custom Pizza
+              </a>
+              <a
+                onClick={handleAddToOrder}
+                href="/checkout"
+                className="add-to-order-button"
+              >
+                Checkout
+              </a>
             </div>
           </div>
         </div>
@@ -178,4 +222,3 @@ function Customize() {
 }
 
 export default Customize;
-

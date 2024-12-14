@@ -31,8 +31,17 @@ const Home = () => {
         </Link>
         <div className="banner">
           <div className="banner-text">
-            Reasonably Fast Delivery * Reasonably Fast Delivery * Reasonably
-            Fast Delivery *
+            Reasonably Fast
+            Delivery&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style={{ color: "#ee4130" }}>*</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reasonably
+            Fast
+            Delivery&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style={{ color: "#ee4130" }}>*</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Reasonably Fast
+            Delivery&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style={{ color: "#ee4130" }}>*</span>
           </div>
         </div>
         <div className="bottom-banner">
