@@ -8,7 +8,6 @@ import Customize from "./pages/Customize";
 import PizzaListings from "./pages/PizzaListings";
 import StoryPage from "./pages/StoryPage";
 import Testing from "./pages/Testing";
-// import Cart from "./pages/Cart";
 
 const App = () => {
   const [pizzas, setPizzas] = useState([]);

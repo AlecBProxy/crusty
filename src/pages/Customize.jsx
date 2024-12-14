@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/customize.css";
 import pizzaBanner from '../media/pizza_customize_banner.jpg';
 import pizza_custom_preview from '../media/pizza-preview_customize.jpg';
@@ -21,7 +22,6 @@ import Basil from '../media/Ingredients/Basil.jpg';
 import Pineapple from '../media/Ingredients/Pineapple.jpg';
 import Sausage from '../media/Ingredients/Sausage.jpg';
 import TomatoSauce from '../media/Ingredients/TomatoSauce.jpg';
-import { useNavigate } from "react-router-dom";
 
 const ingredientImages = {
   TomatoSauce, Cheese, Pepperoni, Salami, Ham, Bacon, GreenPepper, RedPepper, Onion, Mushrooms, BlackOlives, BBQSauce, Basil, Pineapple, Sausage
@@ -33,44 +33,17 @@ const extraImages = {
 
 function Customize() {
   const [size, setSize] = useState('Medium');
-  const [ingredients, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState([])
   const [extras, setExtras] = useState([]);
   const [specialInstructions, setSpecialInstructions] = useState('');
-  // const [cartItems, setCartItems] = useState([]);
+
+  const navigate = useNavigate();
 
   const availableIngredients = Object.keys(ingredientImages);
   const availableExtras = Object.keys(extraImages);
-  const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   setSize(localStorage.getItem('pizzaSize') || 'Medium');
-  //   setIngredients(JSON.parse(localStorage.getItem('pizzaIngredients') || '[]'));
-  //   setExtras(JSON.parse(localStorage.getItem('pizzaExtras') || '[]'));
-  //   setSpecialInstructions(localStorage.getItem('pizzaSpecialInstructions') || '');
-  // }, []);
-
-  // useEffect(() => {
-  //   const fetchCartItems = async () => {
-  //     try {
-  //       const response = await fetch("http://localhost:3002/cart");
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         setCartItems(data);
-  //       } else {
-  //         console.error("Failed to fetch cart items.");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching cart items:", error);
-  //     }
-  //   };
-
-  //   fetchCartItems();
-  // }, []);
 
   const handleSizeChange = (event) => {
-    const newSize = event.target.value;
-    setSize(newSize);
-    // localStorage.setItem('pizzaSize', newSize);
+    setSize(event.target.value);
   };
 
   const handleCheckboxChange = (item, setItems, itemsKey) => {
@@ -78,33 +51,56 @@ function Customize() {
       ? itemsKey.filter(i => i !== item)
       : [...itemsKey, item];
     setItems(updatedItems);
-    // localStorage.setItem(`pizza${setItems === setIngredients ? 'Ingredients' : 'Extras'}`, JSON.stringify(updatedItems));
+  };
+
+  const sizePrices = {
+    "10": 10, // Small
+    "14": 14, // Medium
+    "16": 16, // Large
+    "18": 18, // Extra Large
+  };
+  
+  const ingredientPrice = 1; 
+  const extraPrice = 0.5; 
+  
+  const calculatePrice = () => {
+    const basePrice = sizePrices[size] || 0;
+    const ingredientsCost = ingredients.length * ingredientPrice;
+    const extrasCost = extras.length * extraPrice;
+  
+    return basePrice + ingredientsCost + extrasCost;
   };
 
   const handleSpecialInstructionsChange = (event) => {
-    const instructions = event.target.value;
-    setSpecialInstructions(instructions);
-    localStorage.setItem('pizzaSpecialInstructions', instructions);
+    setSpecialInstructions(event.target.value);
   };
 
-  const handleAddToCart = async () => {
-    const cartData = { size, ingredients, extras, specialInstructions, price: 16, name: 'Custom Pizza' };
-
+  const handleAddToOrder = async () => {
+    const calculatedPrice = calculatePrice(); // Call the calculation function
+  
+    const newOrder = {
+      id: crypto.randomUUID(),
+      size: size,
+      ingredients: ingredients,
+      extras: extras,
+      specialInstructions: specialInstructions,
+      price: calculatedPrice, // Use the calculated price
+    };
+  
     try {
-      const response = await fetch("http://localhost:3002/orders", {
+      const response = await fetch("http://localhost:5000/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(cartData),
+        body: JSON.stringify(newOrder),
       });
-
       if (response.ok) {
-        alert("Your selections have been added to the cart!");
-        // navigate("/order");
+        console.log("Order successfully added!");
+        navigate("/orders"); // Redirect to the orders page
       } else {
-        console.error("Failed to add to cart.");
+        console.error("Failed to add order.");
       }
     } catch (error) {
-      console.error("Error adding to cart:", error);
+      console.error("Error adding order:", error);
     }
   };
 
@@ -124,23 +120,18 @@ function Customize() {
 
   return (
     <div className="customize-container">
-      {/* Full-Width Banner */}
       <div className="custom_banner">
         <img src={pizzaBanner} alt="Custom Banner" />
         <h1 className="banner-title">Customize</h1>
       </div>
 
-      {/* Two-Column Content Section */}
       <div className="content-section">
-        {/* Left Section: Pizza Preview */}
-        {/* <div className="left-section">
+        <div className="left-section">
           <div className="custom-preview">
             <img src={pizza_custom_preview} alt="Pizza Preview" className="customize-picture" />
           </div>
+        </div>
 
-        </div> */}
-
-        {/* Right Section: Selection */}
         <div className="right-section">
           <div className="customizer-section">
             <h3 className="selection-title">Selection</h3>
@@ -170,18 +161,16 @@ function Customize() {
                 className="special-instructions-textarea"
               ></textarea>
 
-              {/* Add to Cart Button */}
-              <button onClick={handleAddToCart} className="add-to-cart-button">
-                <a href="/order">Add to Cart</a>
+              <button onClick={handleAddToOrder} className="add-to-order-button">
+                Add to Order
               </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
   );
-};
+}
 
 export default Customize;
+
