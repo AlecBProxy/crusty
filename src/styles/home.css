@@ -1,10 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Caprasimo:regular);
 @import url(https://fonts.googleapis.com/css?family=Kaisei+Opti:regular,500,700);
 
-body {
-  cursor: url("/pointer.png"), auto;
-}
-
 .home-container {
   background-color: #ee4130;
   background-image: url(src/media/pizzapattern.png);
@@ -17,8 +13,6 @@ body {
   flex-direction: column;
   position: relative;
   min-width: 1500px;
-  overflow: hidden;
-  cursor: url("/pointer.png"), auto;
   font-family: "Caprasimo";
 }
 
@@ -57,7 +51,7 @@ body {
 }
 
 .order-button {
-  background: linear-gradient(to right, #2b7e0a, black);
+  background: linear-gradient(to right, #feb63e, black);
   padding: 15px;
   font-size: larger;
   cursor: pointer;
@@ -70,6 +64,7 @@ body {
   bottom: 61%;
   right: 40%;
   width: 180px;
+  border-radius: 10px;
 }
 
 .order-button:hover {
@@ -157,6 +152,20 @@ body {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.bottom-banner-text {
+  position: absolute;
+  top: 40%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.bottom-banner-text h2 {
+  margin-bottom: 15px;
 }
 
 .testimonial {

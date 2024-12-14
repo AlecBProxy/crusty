@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Order from "./pages/Order";
 import Customize from "./pages/Customize";
 import PizzaListings from "./pages/PizzaListings";
 import StoryPage from "./pages/StoryPage";
 import Testing from "./pages/Testing";
-import CheckoutPage from "./components/CheckoutPage";
 import Checkout from "./pages/Checkout";
 
 const App = () => {
