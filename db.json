@@ -1,5 +1,18 @@
 {
-  "orders": [],
+  "orders": [
+    {
+      "id": "1980",
+      "name": "Veggie",
+      "size": 16,
+      "price": 16
+    },
+    {
+      "id": "6465",
+      "name": "Veggie",
+      "size": 16,
+      "price": 16
+    }
+  ],
   "pizzas": [
     {
       "name": "Margherita",

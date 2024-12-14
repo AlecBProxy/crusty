@@ -9,22 +9,21 @@ function CheckoutPage({ orders, deleteOrder }) {
   const [cvv, setCvv] = useState("123");
   const [billingAddress, setBillingAddress] = useState("1801 Pizza St");
   const [city, setCity] = useState("Pizza Town");
-  const [state, setState] = useState("CA");
+  const [province, setProvince] = useState("CA");
   const [zip, setZip] = useState("90210");
 
   // Compute subtotal, tax, total
   const subTotal = orders.reduce((acc, order) => acc + order.price, 0);
-  const taxRate = 0.015;
+  const taxRate = 0.15;
   const tax = Math.round(subTotal * taxRate * 100) / 100;
   const total = Math.round((subTotal + tax) * 100) / 100;
 
   const handleCheckoutSubmit = (e) => {
-    // e.preventDefault();
 
     // Basic alert for demonstration
     alert(`Thank you for your order! 
 Name on Card: ${cardName}
-Billing Address: ${billingAddress}, ${city}, ${state} ${zip}`);
+Billing Address: ${billingAddress}, ${city}, ${province} ${zip}`);
 
     // Clear form
     setCardName("");
@@ -33,7 +32,7 @@ Billing Address: ${billingAddress}, ${city}, ${state} ${zip}`);
     setCvv("");
     setBillingAddress("");
     setCity("");
-    setState("");
+    setProvince("");
     setZip("");
 
     // delete all orders
@@ -173,25 +172,25 @@ Billing Address: ${billingAddress}, ${city}, ${state} ${zip}`);
         </div>
 
         <div className="checkout-field">
-          <label htmlFor="state">State:</label>
+          <label htmlFor="state">Province</label>
           <input
-            id="state"
+            id="province"
             type="text"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
+            value={province}
+            onChange={(e) => setProvince(e.target.value)}
             required
           />
         </div>
 
         <div className="checkout-field">
-          <label htmlFor="zip">Zip Code:</label>
+          <label htmlFor="zip">Postal Code:</label>
           <input
             id="zip"
             type="text"
             value={zip}
             onChange={(e) => setZip(e.target.value)}
-            pattern="\d{5}"
-            title="Enter a 5-digit zip code"
+            pattern="\d{6}"
+            title="Enter a 6-digit postal code"
             required
           />
         </div>
