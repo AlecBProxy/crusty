@@ -9,6 +9,7 @@ import PizzaListings from "./pages/PizzaListings";
 import StoryPage from "./pages/StoryPage";
 import Testing from "./pages/Testing";
 // import Cart from "./pages/Cart";
+import CheckoutPage from "./components/CheckoutPage";
 
 const App = () => {
   const [pizzas, setPizzas] = useState([]);
@@ -70,7 +71,7 @@ const App = () => {
     const getIngredients = async () => {
       const ingredients = await fetchIngredients();
       console.log(ingredients);
-    }
+    };
   }, []);
 
   return (
@@ -87,7 +88,11 @@ const App = () => {
           <Route path="/order" element={<Order />} />
           <Route path="/customize" element={<Customize />} />
           <Route path="/our-story" element={<StoryPage />} />
-          <Route path="/testing" element={<Testing orders={orders} addOrder={addOrder} />} />
+          <Route
+            path="/testing"
+            element={<Testing orders={orders} addOrder={addOrder} />}
+          />
+          <Route path="/checkout" element={<CheckoutPage />} />
           {/* <Route path="/cart" element={<Cart />} /> */}
           {/* Added this route */}
         </Routes>
