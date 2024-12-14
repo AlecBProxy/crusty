@@ -8,12 +8,14 @@ import face2 from "../media/face2.png";
 import face3 from "../media/face3.png";
 import { Link } from "react-router-dom";
 import badge from "../media/badge.png";
+import squiggle from "../media/squig.png";
 
 const Home = () => {
   return (
     <div className="home-container">
       <main className="content">
         <div className="left-column">
+          <img src={squiggle} />
           <h2 className="headline">
             We're not the
             <br />

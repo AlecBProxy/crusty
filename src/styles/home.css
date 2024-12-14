@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Caprasimo:regular);
 @import url(https://fonts.googleapis.com/css?family=Kaisei+Opti:regular,500,700);
-
 body {
   cursor: url("/pointer.png"), auto;
 }
@@ -12,7 +11,6 @@ body {
   background-size: auto;
   background-position: top left;
   color: white;
-  font-family: "Caprasimo";
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -20,6 +18,7 @@ body {
   min-width: 1500px;
   overflow: hidden;
   cursor: url("/pointer.png"), auto;
+  font-family: "Caprasimo";
 }
 
 .brand-name {
@@ -58,17 +57,18 @@ body {
 
 .order-button {
   background: linear-gradient(to right, #2b7e0a, black);
-  position: absolute;
-  top: 450px;
-  right: 700px;
-  width: 10%;
-  transform: rotate(10deg);
+  padding: 15px;
   font-size: larger;
   cursor: pointer;
   transition: background-position 0.3s ease;
   background-size: 200% 100%;
   background-position: left;
   pointer-events: auto;
+  color: white;
+  position: absolute;
+  bottom: 61%;
+  right: 40%;
+  width: 180px;
 }
 
 .order-button:hover {
@@ -95,7 +95,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
   position: absolute;
-  top: 600px;
+  top: 700px;
   width: 100%;
   transform: rotate(-2deg);
 }
@@ -129,9 +129,10 @@ body {
 .badge {
   position: absolute;
   bottom: 70%;
-  right: 40%;
-  width: 250px;
+  right: 34%;
+  width: 300px;
   pointer-events: none;
+  transform: rotate(10deg);
 }
 
 @keyframes spin {

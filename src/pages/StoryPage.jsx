@@ -1,42 +1,42 @@
 import React from "react";
 import "../styles/story.css";
-import mainImage from "../media/main.webp";
+import steamingpizza from "../media/steamingpizza.jpg";
 import pizzaStory from "../media/pizza-story.webp";
-import userImage from "../media/user.webp";
+import cheesy from "../media/cheesy.png";
 
 const StoryPage = () => {
   return (
-    <div>
+    <div className="story-container">
       <section className="hero">
-        <img src={mainImage} alt="Pizza Restaurant" className="hero-img" />
-        <div className="hero-text">We Offer The Most Crusty Pizza Ever</div>
+        <img src={steamingpizza} alt="Pizza Restaurant" className="hero-img" />
+        {/* <div className="hero-text">A slice you can't refuse.</div> */}
       </section>
       {/* Story Section */}
       <section id="story" className="story">
-        <h2>Discover Our Story</h2>
-        <p>
-          After more than two decades of fine-tuning, we have what you see
-          today!
-        </p>
+        <img src={cheesy} alt="Cheese Wheel" className="cheese-wheel" />
+
+        <h2>It's a Cheesy Tale</h2>
+
         <div className="story-columns">
           <div className="column">
             <p>
-              At CRUSTY PIZZA, our story is baked into every slice. Founded with
-              a passion for bringing people together over exceptional flavors,
-              we pride ourselves on crafting artisanal pizzas using the finest
-              ingredients. From hand-stretched crust to bold, globally inspired
-              toppings, every pie shines. Nestled in the heart of the community,
-              CRUSTY PIZZA is where moments are made.
+              At CRUSTI, we didn’t set out to make the world’s best pizza...good
+              thing, too, because we didn’t. But hey, it’s good enough to make
+              your taste buds sing and your wallet smile. Born in the back room
+              of a "legit business" (don’t ask), our pies are hand-crafted with
+              just enough love to keep the health inspector off our backs. We’re
+              all about big flavors, bold toppings, and crust that’ll make you
+              say, “Yeah, this’ll do.”
             </p>
           </div>
           <div className="column">
             <p>
-              Whether it's a classic Margherita or a gourmet fusion creation,
-              there's something for everyone. Our cozy and vibrant space is
-              perfect for sharing laughter and great food. We believe a perfect
-              pizza is more than just a meal—it's a tradition. Come explore our
-              exciting menu and taste the difference in every slice. At CRUSTY
-              PIZZA, every bite is part of our delicious journey!
+              Whether you're a sucker for the classics or want to
+              "fuggedaboutit" with something wild, we’ve got a pie for you. Our
+              joint is cozy enough to make you feel at home at Ma's. At CRUSTI,
+              it’s not just about the pizza (okay, it is), but also the laughs,
+              the stories, and the occasional undercooked slice. Welcome to our
+              family.
             </p>
           </div>
         </div>
@@ -44,14 +44,10 @@ const StoryPage = () => {
       {/* Pizza Section */}
       <section className="pizza-section">
         <img src={pizzaStory} alt="Pizza" className="pizza-img" />
-        <div className="pizza-overlay">
-          <p>
-            Every slice tells a story. 🍕 Taste the CRUSTY PIZZA difference!
-          </p>
-        </div>
+        <div className="pizza-overlay"></div>
       </section>
       {/* Testimonials Section */}
-      <section className="testimonials">
+      {/* <section className="testimonials">
         <i className="fas fa-comments testimonial-icon"></i>
         <h2 className="testimonials-title">Testimonials</h2>
         <h2>What Our Clients Think About Us</h2>
@@ -68,9 +64,9 @@ const StoryPage = () => {
             <strong>- Jennifer Smith</strong>
           </p>
         </div>
-      </section>
+      </section> */}
       {/* Footer */}
-      <footer className="footer">
+      {/* <footer className="footer">
         <p> Back to Top</p>
         <div className="social-icons">
           <a
@@ -95,7 +91,7 @@ const StoryPage = () => {
             <i className="fab fa-linkedin-in"></i>
           </a>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };
