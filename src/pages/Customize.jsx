@@ -54,20 +54,20 @@ function Customize() {
   };
 
   const sizePrices = {
-    "10": 10, // Small
-    "14": 14, // Medium
-    "16": 16, // Large
-    "18": 18, // Extra Large
+    "10": 12, // Small
+    "14": 15, // Medium
+    "16": 17, // Large
+    "18": 19, // Extra Large
   };
-  
-  const ingredientPrice = 1; 
-  const extraPrice = 0.5; 
-  
-  const calculatePrice = () => {
-    const basePrice = sizePrices[size] || 0;
+
+  const ingredientPrice = 1;
+  const extraPrice = 0.5;
+
+  const calculatePrice = (size) => {
+    const basePrice = sizePrices[size] || 12;
     const ingredientsCost = ingredients.length * ingredientPrice;
     const extrasCost = extras.length * extraPrice;
-  
+
     return basePrice + ingredientsCost + extrasCost;
   };
 
@@ -76,26 +76,28 @@ function Customize() {
   };
 
   const handleAddToOrder = async () => {
-    const calculatedPrice = calculatePrice(); // Call the calculation function
-  
+    const calculatedPrice = calculatePrice(size); // Call the calculation function
+
     const newOrder = {
-      id: crypto.randomUUID(),
+      name: "Custom Pizza",
       size: size,
       ingredients: ingredients,
       extras: extras,
       specialInstructions: specialInstructions,
       price: calculatedPrice, // Use the calculated price
     };
-  
+
+
+
     try {
-      const response = await fetch("http://localhost:5000/orders", {
+      const response = await fetch("http://localhost:3002/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newOrder),
       });
       if (response.ok) {
         console.log("Order successfully added!");
-        navigate("/orders"); // Redirect to the orders page
+        // navigate("/checkout"); 
       } else {
         console.error("Failed to add order.");
       }
@@ -161,9 +163,12 @@ function Customize() {
                 className="special-instructions-textarea"
               ></textarea>
 
-              <button onClick={handleAddToOrder} className="add-to-order-button">
-                Add to Order
-              </button>
+
+            </div>
+            <div className="order-buttons">
+              <a onClick={handleAddToOrder} href="/pizza-listings" className="add-to-order-button">Continue browsing</a>
+              <a onClick={handleAddToOrder} href="/customize" className="add-to-order-button">Add another custom Pizza</a>
+              <a onClick={handleAddToOrder} href="/checkout" className="add-to-order-button">Checkout</a>
             </div>
           </div>
         </div>

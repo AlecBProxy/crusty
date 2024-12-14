@@ -1,47 +1,5 @@
 {
-  "orders": [
-    {
-      "id": "1c9c",
-      "size": "Medium (14 in.)",
-      "ingredients": [
-        "TomatoSauce",
-        "Mushrooms",
-        "Basil"
-      ],
-      "extras": [
-        "ParmesanCheese"
-      ],
-      "specialInstructions": "Deliver to my place, pronto."
-    },
-    {
-      "id": "4807",
-      "size": "Medium (14 in.)",
-      "ingredients": [
-        "Pineapple",
-        "Pepperoni",
-        "TomatoSauce",
-        "Cheese"
-      ],
-      "extras": [
-        "ExtraCheese"
-      ],
-      "specialInstructions": "Handle with care"
-    },
-    {
-      "id": "02cf",
-      "size": "Large (16 in.)",
-      "ingredients": [
-        "BlackOlives",
-        "GreenPepper"
-      ],
-      "extras": [
-        "RedChiliFlakes"
-      ],
-      "specialInstructions": "",
-      "price": 16,
-      "name": "Custom Pizza"
-    }
-  ],
+  "orders": [],
   "pizzas": [
     {
       "name": "Margherita",
@@ -131,89 +89,6 @@
         "Basil"
       ],
       "id": "7e89"
-    },
-    {
-      "id": "b2ba",
-      "name": "Veggie",
-      "size": 16,
-      "price": 16
-    },
-    {
-      "id": "a26e",
-      "name": "Margherita",
-      "size": 18,
-      "price": 14
-    },
-    {
-      "id": "ad2b",
-      "name": "Margherita",
-      "size": 16,
-      "price": 12
-    },
-    {
-      "id": "b977",
-      "name": "Hawaiian",
-      "size": 16,
-      "price": 15
-    },
-    {
-      "id": "74e2",
-      "size": "16",
-      "ingredients": [
-        "Mushrooms",
-        "BlackOlives",
-        "Pineapple",
-        "RedPepper",
-        "Ham",
-        "GreenPepper",
-        "Salami"
-      ],
-      "extras": [],
-      "specialInstructions": "",
-      "price": 16,
-      "name": "Custom Pizza"
-    },
-    {
-      "id": "2fc1",
-      "name": "Piizzzaaaa",
-      "size": 5,
-      "price": 4
-    },
-    {
-      "id": "aea9",
-      "name": "Veggie",
-      "size": 18,
-      "price": 18
-    },
-    {
-      "id": "d359",
-      "size": "Medium",
-      "ingredients": [
-        "Basil",
-        "BlackOlives"
-      ],
-      "extras": [],
-      "specialInstructions": "",
-      "price": 16,
-      "name": "Custom Pizza"
-    },
-    {
-      "id": "e30d",
-      "name": "Alezx",
-      "size": 14,
-      "price": 10
-    },
-    {
-      "id": "bc5e",
-      "name": "Alezx",
-      "size": 14,
-      "price": 10
-    },
-    {
-      "id": "9b82",
-      "name": "Alezx",
-      "size": 14,
-      "price": 10
     }
   ],
   "ingredients": [
@@ -231,53 +106,6 @@
       "id": "3",
       "name": "Peppers",
       "price": 1
-    },
-    
-    {
-      "id": "ezw0",
-      "size": "16",
-      "ingredients": [
-        "TomatoSauce",
-        "Cheese",
-        "Pineapple"
-      ],
-      "extras": [
-        "ExtraCheese",
-        "RedChiliFlakes"
-      ],
-      "specialInstructions": "Okay okay",
-      "price": 16,
-      "name": "Custom Pizza"
-    },
-    {
-      "id": "kyr2",
-      "size": "16",
-      "ingredients": [
-        "Cheese",
-        "TomatoSauce",
-        "Pepperoni",
-        "Bacon"
-      ],
-      "extras": [],
-      "specialInstructions": "Test 2",
-      "price": 16,
-      "name": "Custom Pizza"
-    },
-    {
-      "id": "zi1d",
-      "size": "18",
-      "ingredients": [
-        "TomatoSauce",
-        "Cheese",
-        "Pepperoni"
-      ],
-      "extras": [
-        "ExtraCheese",
-        "GarlicAndHerbs"
-      ],
-      "specialInstructions": "Crusti's the stuff, man.",
-      "price": 16,
-      "name": "Custom Pizza"
     }
   ]
 }

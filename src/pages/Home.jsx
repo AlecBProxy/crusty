@@ -17,16 +17,16 @@ const Home = () => {
         <div className="left-column">
           <img src={squiggle} />
           <h2 className="headline">
-            We're not the
+            We&apos;re not the
             <br />
             best, but at
             <br />
-            least we're
+            least we&apos;re
             <br />
             affordable
           </h2>
         </div>
-        <Link to="/order">
+        <Link to="/pizza-listings">
           <button className="order-button">Order Now!</button>
         </Link>
         <div className="banner">
@@ -44,17 +44,17 @@ const Home = () => {
         <div className="testimonial-group">
           <div className="testimonial">
             <img src={face1} alt="Face 1" />
-            <p>"The crust? Perfectly crispy. Just like Ma used to make."</p>
+            <p>&quot;The crust? Perfectly crispy. Just like Ma used to make.&quot;</p>
           </div>
           <div className="testimonial">
             <img src={face2} alt="Face 3" />
             <p>
-              "Every other pizza joint will let you down after coming here."
+              &quot;Every other pizza joint will let you down after coming here.&quot;
             </p>
           </div>
           <div className="testimonial">
             <img src={face3} alt="Face 3" />
-            <p>"Fresh. Bold. No Shortcuts."</p>
+            <p>&quot;Fresh. Bold. No Shortcuts.&quot;</p>
           </div>
         </div>
       </main>

@@ -149,9 +149,15 @@ h3 {
   font-size: 1rem;
 }
 
+.order-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* Add to Cart Button */
-.add-to-cart-button {
-  width: 50%;
+.add-to-order-button {
+  text-decoration: none;
   padding: 15px;
   background-color: #ee4130;
   color: white;
@@ -160,6 +166,11 @@ h3 {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+/* set the background color of the 3rd child of order buttons */
+.order-buttons a:nth-child(3) {
+  background-color: green;
 }
 
 .add-to-cart-button:hover {

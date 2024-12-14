@@ -9,11 +9,11 @@ import PizzaListings from "./pages/PizzaListings";
 import StoryPage from "./pages/StoryPage";
 import Testing from "./pages/Testing";
 import CheckoutPage from "./components/CheckoutPage";
+import Checkout from "./pages/Checkout";
 
 const App = () => {
   const [pizzas, setPizzas] = useState([]);
   const [orders, setOrders] = useState([]);
-  const [ingredients, setIngredients] = useState([]);
 
   const fetchPizzas = async () => {
     const response = await fetch("http://localhost:3002/pizzas");
@@ -27,11 +27,6 @@ const App = () => {
     return orders;
   };
 
-  const fetchIngredients = async () => {
-    const response = await fetch("http://localhost:3002/ingredients");
-    const ingredients = await response.json();
-    return ingredients;
-  };
 
   const addOrder = async (order) => {
     const response = await fetch("http://localhost:3002/orders", {
@@ -66,11 +61,6 @@ const App = () => {
       setOrders(ordersFromServer);
     };
     getOrders();
-
-    const getIngredients = async () => {
-      const ingredients = await fetchIngredients();
-      console.log(ingredients);
-    };
   }, []);
 
   return (
@@ -84,16 +74,13 @@ const App = () => {
             path="/pizza-listings"
             element={<PizzaListings pizzas={pizzas} addOrder={addOrder} />}
           />
-          <Route path="/order" element={<Order />} />
           <Route path="/customize" element={<Customize />} />
           <Route path="/our-story" element={<StoryPage />} />
           <Route
             path="/testing"
             element={<Testing orders={orders} addOrder={addOrder} />}
           />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          {/* <Route path="/cart" element={<Cart />} /> */}
-          {/* Added this route */}
+          <Route path="/checkout" element={<Checkout orders={orders} deleteOrder={deleteOrder} />} />
         </Routes>
 
         <Footer />
