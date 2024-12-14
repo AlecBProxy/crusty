@@ -1,25 +1,51 @@
 {
-  "orders": [],
+  "orders": [
+    {
+      "id": "6cc0",
+      "name": "Veggie",
+      "size": 18,
+      "price": 18
+    },
+    {
+      "id": "1519",
+      "name": "Veggie",
+      "size": 12,
+      "price": 14
+    }
+  ],
   "pizzas": [
     {
       "name": "Margherita",
       "image": "/pizzas/margherita.png",
       "price": 10,
-      "ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Basil"],
+      "ingredients": [
+        "Tomato Sauce",
+        "Mozzarella Cheese",
+        "Basil"
+      ],
       "id": "e7ba"
     },
     {
       "name": "Pepperoni",
       "image": "/pizzas/margherita.png",
       "price": 12,
-      "ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Pepperoni"],
+      "ingredients": [
+        "Tomato Sauce",
+        "Mozzarella Cheese",
+        "Pepperoni"
+      ],
       "id": "e6a0"
     },
     {
       "name": "Hawaiian",
       "image": "/pizzas/margherita.png",
       "price": 13,
-      "ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Ham", "Pineapple"],
+      "ingredients": [
+        "Tomato Sauce",
+        "Mozzarella Cheese",
+        "Ham",
+        "Pineapple"
+      ],
       "id": "2991"
     },
     {
