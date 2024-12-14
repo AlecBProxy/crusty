@@ -14,10 +14,7 @@ const Navbar = ({ orders, deleteOrder }) => {
         <a href="/">Home</a>
         <Link to="/pizza-listings">Pizzas</Link>
         <Link to="/customize">Customize</Link>
-        <Link to="/order">Order</Link>
         <Link to="/our-story">Our Story</Link>
-        {/* <Link to="/cart">Cart - NH</Link> */}
-        <Link to="/testing">Testing</Link>
       </nav>
       <Orders orders={orders} deleteOrder={deleteOrder} />
     </header>

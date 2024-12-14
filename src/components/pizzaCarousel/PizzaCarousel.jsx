@@ -4,17 +4,23 @@ import { motion, useMotionValue } from 'framer-motion'
 import './pizzaCarousel.css'
 
 
-// const pizzaOptions = [
-//   { name: 'Margherita', image: 'https://pinza.com/application/files/7816/2796/6583/0023_PINZA-mask-slice-MEATY-tandoori.png', price: 10, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Basil'] },
-//   { name: 'Pepperoni', image: 'https://pinza.com/application/files/2916/2796/6597/0030_PINZA-mask-slice-MEATY-pepperoni.png', price: 12, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Pepperoni'] },
-//   { name: 'Hawaiian', image: 'https://pinza.com/application/files/2916/2796/6595/0029_PINZA-mask-slice-MEATY-pesto.png', price: 13, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Ham', 'Pineapple'] },
-//   { name: 'Veggie', image: 'https://pinza.com/application/files/8216/2796/6544/0000_PINZA-mask-slice-VEGETARIAN-SEAFOOD-veggielicious.png', price: 14, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Mushrooms', 'Bell Peppers', 'Olives'] },
-//   { name: 'BBQ Chicken', image: 'https://pinza.com/application/files/2716/2796/6548/0003_PINZA-mask-slice-VEGETARIAN-SEAFOOD-pinzafied.png', price: 15, ingredients: ['BBQ Sauce', 'Mozzarella Cheese', 'Chicken', 'Red Onions'] },
-//   { name: 'Meat Lovers', image: 'https://pinza.com/application/files/1016/7585/7358/0038_PINZA-mask-slice-MEATY-truffle-salami.png', price: 16, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Pepperoni', 'Sausage', 'Bacon'] },
-//   { name: 'Supreme', image: 'https://pinza.com/application/files/5516/3594/0715/0000_PINZA-mask-slice-MEATY-Shish.png', price: 17, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Pepperoni', 'Sausage', 'Mushrooms', 'Bell Peppers', 'Olives'] },
-// ];
+const pizzaOptions = [
+  { name: 'Margherita', image: 'https://pinza.com/application/files/7816/2796/6583/0023_PINZA-mask-slice-MEATY-tandoori.png', price: 10, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Basil'] },
+  { name: 'Pepperoni', image: 'https://pinza.com/application/files/2916/2796/6597/0030_PINZA-mask-slice-MEATY-pepperoni.png', price: 12, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Pepperoni'] },
+  { name: 'Hawaiian', image: 'https://pinza.com/application/files/2916/2796/6595/0029_PINZA-mask-slice-MEATY-pesto.png', price: 13, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Ham', 'Pineapple'] },
+  { name: 'Veggie', image: 'https://pinza.com/application/files/8216/2796/6544/0000_PINZA-mask-slice-VEGETARIAN-SEAFOOD-veggielicious.png', price: 14, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Mushrooms', 'Bell Peppers', 'Olives'] },
+  { name: 'BBQ Chicken', image: 'https://pinza.com/application/files/2716/2796/6548/0003_PINZA-mask-slice-VEGETARIAN-SEAFOOD-pinzafied.png', price: 15, ingredients: ['BBQ Sauce', 'Mozzarella Cheese', 'Chicken', 'Red Onions'] },
+  { name: 'Meat Lovers', image: 'https://pinza.com/application/files/1016/7585/7358/0038_PINZA-mask-slice-MEATY-truffle-salami.png', price: 16, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Pepperoni', 'Sausage', 'Bacon'] },
+  { name: 'Supreme', image: 'https://pinza.com/application/files/5516/3594/0715/0000_PINZA-mask-slice-MEATY-Shish.png', price: 17, ingredients: ['Tomato Sauce', 'Mozzarella Cheese', 'Pepperoni', 'Sausage', 'Mushrooms', 'Bell Peppers', 'Olives'] },
+];
 
 const PizzaCarousel = ({ pizzas, addOrder }) => {
+
+
+  // if Pizzas are not passed as props, use the pizzaOptions array
+  if (pizzas.length === 0) {
+    pizzas = pizzaOptions
+  }
 
   const DRAG_BUFFER = 50
 

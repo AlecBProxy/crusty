@@ -1,25 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-const CheckoutPage = () => {
+const CheckoutPage = ({ orders }) => {
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
 
   // Fetch cart items from db.json
-  useEffect(() => {
-    fetchCartItems();
-  }, []);
 
-  const fetchCartItems = async () => {
-    try {
-      const response = await fetch("http://localhost:3002/cart");
-      const data = await response.json();
-      setCartItems(data);
-      calculateTotal(data);
-    } catch (error) {
-      console.error("Error fetching cart data:", error);
-    }
-  };
 
   const calculateTotal = (items) => {
     const subtotal = items.reduce(
